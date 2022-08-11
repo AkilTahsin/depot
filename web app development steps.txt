@@ -1,0 +1,74 @@
+1. create new application
+    > rails new %app%
+    > cd %app%
+
+2. generate scaffold (includes model, view, controller, migration)
+    migration: create/modify table in database
+    model: use that table
+    view: make up UIs from the model data
+    controller: communicate/command
+
+    > bin/rails generate scaffold %table_name% \
+title:string description:text image_url:string price:decimal
+
+# config/database.yml has a database path and name, rails takes
+# this info and associates model to that database.
+
+3. modify migration file to further customize the db table data types.
+# migration.rb files are ruby commands that implements database queries.
+
+4. apply migration. it checks migration files and applies all.
+# Initially this creates the database (as per file name and path defined in database.yml)
+# and generates table(s) as per the queries/commands.
+    > bin/rails db:migrate
+
+-----------------------
+so far,
+'product' model, view and 'products' controller has been created.
+migration file with appropriate ORM commands has been placed (and modified).
+migrate file has been applied.
+'products' table has been created in database.sqlite3 file.
+-----------------------
+
+5. change view by modifying the html.erb files in associated directory
+(associated directory means same named views as per controller name, and model name)
+
+6. we can now run the app
+    > bin/rails server
+    > http://localhost:3000/product
+
+<p> <em>Native Apps, Multiple Platforms</em> Answer the question “Can we build this for ALL the devices?” with a resounding YES. This book will help you get there with a real-world introduction to seven platforms, whether you’re new to mobile or an experienced developer needing to expand your options. Plus, you’ll find out which cross-
+platform solution makes the most sense for your needs. </p>
+
+7. use seed to populate demo data
+directory: db/seeds.rb
+    > bin/rails db:seed
+
+8. there are css/scss files in app/assets/stylesheets. add reference of them to /application.css
+# PROBLEM: Cannot load sassc/scss file, if I convert materials into a .css file, it cannot detect them
+# UPDATE: I followed the book, modified 
+        rails6/depot_a/app/views/layouts/application.html.erb -> did some commenting to avoid error
+        rails6/depot_a/app/views/products/index.html.erb -> copy-paste
+    However, there is supposed to be a "Are you sure?" prompt while trying to destroy a product.
+    That does not pop up.
+
+9. validate data entry while new model class creation
+    > validate
+
+10. Add validity checks in test/model classes and
+    test cases in test/controller classes
+    -> These are unit testing.
+
+11. Add functional testing (such as whether inputs are properly parsed
+and if they are properly formatted)
+
+12. Use helper class to manipulate stuff. Add helper function in any helper class,
+use it anywhere (only experimented in different .html.erb files so far)
+
+13. Enable caching
+    > bin/rails dev:cache
+
+14. Add cache code to appropriate code lines
+    # Make sure cache covers those data which may change frequenty.
+
+15.
