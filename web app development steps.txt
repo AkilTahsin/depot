@@ -71,4 +71,26 @@ use it anywhere (only experimented in different .html.erb files so far)
 14. Add cache code to appropriate code lines
     # Make sure cache covers those data which may change frequenty.
 
-15.
+15. Encountered a fatal error. Accidentally deleted a table from my application database manually.
+Now bin/rails db:migrate should work, but it doesn't. And the application crashes without all previously defined tables being available.
+
+Solution: Log into database
+create the table previously deleted (exact same name)
+> rake db:rollback.
+// This runs a rollback sequence which undoes the recent migration.
+// The newly created table had no content or proper column definition, but rails ran the rollback,
+found and deleted the table (as per latest migration)
+> rake db:migrate
+// It reruns all migrations sequentially and restores all previously (manually) deleted tables.
+
+count = 0
+while true
+    puts "Processing browser request with #{count} iterations. Processing."
+    puts "ActionDispatch::Request DELETE http://www.example.com/products/980190962 for 127.0.0.1>>, @request=#<ActionDispatch::Request"
+    puts '.' * count
+    if count > 3
+        count = 0
+    end
+    count +=1
+    sleep(0.5)
+end

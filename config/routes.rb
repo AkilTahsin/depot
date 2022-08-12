@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :line_items
+  resources :carts
   get 'hey_there/one'
   get 'hey_there/two'
   get 'hey_there/three'
