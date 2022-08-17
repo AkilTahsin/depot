@@ -73,3 +73,6 @@ end
 
 # bug fixing
 gem 'sass-rails'
+
+# webpacker for app-like javascript
+gem 'webpacker'
