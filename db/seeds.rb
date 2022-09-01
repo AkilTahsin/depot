@@ -59,20 +59,22 @@ Product.create!(title: 'Programming Crystal',
   image_url: 'crystal.jpg',
   price: 40.00)
 
-  Product.create!(title: 'Ruby Performance Optimization',
-    description:
-      %{<p>
-        <em>Why Ruby is Slow, and How to Fix It</em>
-        This is the first book ever that consolidates all the Ruby performance optimization advice in one place. It’s your comprehensive guide to memory optimization, CPU optimization, garbage collector tuning, profiling, measurements, performance testing, and more.
-        </p>},
-    image_url: 'adrpo.jpg',
-    price: 25.00)
+Product.create!(title: 'Ruby Performance Optimization',
+  description:
+    %{<p>
+      <em>Why Ruby is Slow, and How to Fix It</em>
+      This is the first book ever that consolidates all the Ruby performance optimization advice in one place. It’s your comprehensive guide to memory optimization, CPU optimization, garbage collector tuning, profiling, measurements, performance testing, and more.
+      </p>},
+  image_url: 'adrpo.jpg',
+  price: 25.00)
 
-    Product.create!(title: 'Rails, Angular, Postgres, and Bootstrap: 2nd Edition',
-      description:
-        %{<p>
-          <em>Why Ruby is Slow, and How to Fix It</em>
-          As a Rails developer, you care about user experience and performance, but you also want simple and maintainable code. Achieve all that by embracing the full stack of web development, from styling with Bootstrap, building an interactive user interface with AngularJS, to storing data quickly and reliably in PostgreSQL. Take a holistic view of full-stack development to create usable, high-performing applications, and learn to use these technologies effectively in a Ruby on Rails environment.
-          </p>},
-      image_url: 'dcbang.jpg',
-      price: 33.00)
+Product.create!(title: 'Rails, Angular, Postgres, and Bootstrap: 2nd Edition',
+  description:
+    %{<p>
+      <em>Why Ruby is Slow, and How to Fix It</em>
+      As a Rails developer, you care about user experience and performance, but you also want simple and maintainable code. Achieve all that by embracing the full stack of web development, from styling with Bootstrap, building an interactive user interface with AngularJS, to storing data quickly and reliably in PostgreSQL. Take a holistic view of full-stack development to create usable, high-performing applications, and learn to use these technologies effectively in a Ruby on Rails environment.
+      </p>},
+  image_url: 'dcbang.jpg',
+  price: 33.00)
+
+User.create(name: 'akil', password: 'secret', password_confirmation: 'secret')
